@@ -5,7 +5,7 @@ import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {envData} from '@/constants';
 import {JwtPayload} from '@/interfaces/user';
 import {keyHidden} from '@/constants';
-import {UserService} from "@/user/user.service";
+import {UserService} from "@/modules/user/user.service";
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {

@@ -1,13 +1,13 @@
 import {Module} from '@nestjs/common';
-import {AppController} from '@/app/app.controller';
-import {AppService} from '@/app/app.service';
+import {AppController} from '@/modules/app/app.controller';
+import {AppService} from '@/modules/app/app.service';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {envData} from '@/constants';
 import {APP_GUARD} from '@nestjs/core';
-import {JwtAuthGuard} from '@/auth/guards/jwt';
-import {AuthModule} from '@/auth/auth.module';
+import {JwtAuthGuard} from '@/modules/auth/guards/jwt';
+import {AuthModule} from '@/modules/auth/auth.module';
 import {User} from "@/typeorm/entities/user";
-import {AdminModule} from "@/admin/admin.module";
+import {AdminModule} from "@/modules/admin/admin.module";
 @Module({
   providers: [
     AppService,

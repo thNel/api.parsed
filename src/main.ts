@@ -1,5 +1,5 @@
 import {NestFactory} from '@nestjs/core';
-import {AppModule} from '@/app/app.module';
+import {AppModule} from '@/modules/app/app.module';
 import {envData} from '@/constants';
 import {VersioningType} from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';

@@ -7,7 +7,7 @@
   "type": "commonjs",
   "description": "",
   "scripts": {
-    "prebuild": "npx rimraf /dist",
+    "prebuild": "npx rimraf ./dist",
     "build": "set NODE_ENV=production&& nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "set NODE_ENV=development&& nest start",

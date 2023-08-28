@@ -1,8 +1,8 @@
 import {Body, Controller, Get, Post, Request, Response, UseGuards} from '@nestjs/common';
-import {LocalAuthGuard} from '@/auth/guards/local';
+import {LocalAuthGuard} from '@/modules/auth/guards/local';
 import {Public} from '@/decorators/public';
 import {UserPassPair} from '@/interfaces/user';
-import {AuthService} from "@/auth/auth.service";
+import {AuthService} from "@/modules/auth/auth.service";
 import {envData} from "@/constants";
 import {ServerMessage} from "@/interfaces";
 
