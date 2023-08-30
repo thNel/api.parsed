@@ -19,7 +19,7 @@ export class AuthController {
     secure: !envData.isDev,
     maxAge: 48 * 60 * 60 * 1000,
   }
-  constructor(private authService: AuthService) {
+  constructor(private readonly authService: AuthService) {
   }
 
   @Public()

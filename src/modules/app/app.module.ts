@@ -11,6 +11,9 @@ import {AdminModule} from "@/modules/admin/admin.module";
 import {Course} from "@/typeorm/entities/courses";
 import {School} from "@/typeorm/entities/schools";
 import {Lesson} from "@/typeorm/entities/lessons";
+import {CourseModule} from "@/modules/course/course.module";
+import {ServeStaticModule} from "@nestjs/serve-static";
+import { join } from 'path';
 @Module({
   providers: [
     AppService,
@@ -37,7 +40,13 @@ import {Lesson} from "@/typeorm/entities/lessons";
     }),
     AuthModule,
     AdminModule,
-    TypeOrmModule.forFeature([School, Course, Lesson])
+    CourseModule,
+    TypeOrmModule.forFeature([School, Course, Lesson]),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '../../../', 'media'),
+      exclude: ['/api/(.*)'],
+      serveRoot: '/media',
+    }),
   ],
   controllers: [AppController],
 })
