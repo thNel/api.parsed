@@ -8,6 +8,9 @@ import {JwtAuthGuard} from '@/modules/auth/guards/jwt';
 import {AuthModule} from '@/modules/auth/auth.module';
 import {User} from "@/typeorm/entities/user";
 import {AdminModule} from "@/modules/admin/admin.module";
+import {Course} from "@/typeorm/entities/courses";
+import {School} from "@/typeorm/entities/schools";
+import {Lesson} from "@/typeorm/entities/lessons";
 @Module({
   providers: [
     AppService,
@@ -26,11 +29,15 @@ import {AdminModule} from "@/modules/admin/admin.module";
       database: envData.dbName,
       entities: [
         User,
+        School,
+        Course,
+        Lesson,
       ],
       synchronize: envData.isDev,
     }),
     AuthModule,
     AdminModule,
+    TypeOrmModule.forFeature([School, Course, Lesson])
   ],
   controllers: [AppController],
 })

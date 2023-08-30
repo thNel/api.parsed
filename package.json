@@ -7,7 +7,7 @@
   "type": "commonjs",
   "description": "",
   "scripts": {
-    "prebuild": "npx rimraf ./dist",
+    "prebuild": "npx rimraf ./dist/",
     "build": "set NODE_ENV=production&& nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "set NODE_ENV=development&& nest start",
@@ -24,7 +24,7 @@
     "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-express": "^9.2.1",
     "@nestjs/typeorm": "^9.0.1",
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "mysql2": "^2.3.3",

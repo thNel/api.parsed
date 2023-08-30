@@ -1,4 +1,5 @@
 export * from './user';
+export * from './dump';
 
 export interface ServerMessage {
   success?: boolean,
