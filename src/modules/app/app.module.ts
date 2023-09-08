@@ -14,6 +14,7 @@ import {Lesson} from "@/typeorm/entities/lessons";
 import {CourseModule} from "@/modules/course/course.module";
 import {ServeStaticModule} from "@nestjs/serve-static";
 import { join } from 'path';
+import {Category} from "@/typeorm/entities/category";
 @Module({
   providers: [
     AppService,
@@ -35,6 +36,7 @@ import { join } from 'path';
         School,
         Course,
         Lesson,
+        Category,
       ],
       synchronize: envData.isDev,
     }),
