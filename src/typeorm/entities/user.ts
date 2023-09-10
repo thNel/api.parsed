@@ -17,13 +17,13 @@ export class User {
   @Column({type: 'enum', enum: UserGroup, default: UserGroup.PEASANT})
   userGroup: UserGroup;
 
-  @Column({nullable: true})
+  @Column({nullable: true, default: null})
   email: string;
 
-  @Column({nullable: true})
+  @Column({nullable: true, default: null})
   telegram: string;
 
-  @Column({nullable: true})
+  @Column({nullable: true, default: null})
   vk: string;
 
   @Column({nullable: false})

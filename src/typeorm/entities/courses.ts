@@ -8,7 +8,7 @@ export class Course {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({unique: true, nullable: false})
+  @Column({nullable: false, default:'none'})
   externalId: string;
 
   @Column({nullable: false})

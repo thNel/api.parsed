@@ -30,7 +30,7 @@ export class Lesson {
   @Column({type: 'enum', enum: LessonType, default: LessonType.youtube})
   type: LessonType;
 
-  @Column({type: 'json', nullable: true})
+  @Column({type: 'json', nullable: true, default: null})
   extraData: ExtraData;
 
   @ManyToOne(() => Course, (course) => course.lessons, {cascade: true})
