@@ -38,7 +38,9 @@ export class AppService {
   //       await this.lessonsRepository.save({
   //         course,
   //         title: lessonDump.title,
-  //         url: lessonDump.url
+  //         url: lessonDump.url,
+  //         type: lessonDump.type,
+  //         extraData: lessonDump.extraData,
   //       })
   //     }
   //   }
