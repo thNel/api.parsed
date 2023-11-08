@@ -18,6 +18,7 @@ export class CourseController {
     return await this.courseService.getSchoolList();
   }
 
+  @Public()
   @Get('/:schoolId')
   async getCategories(@Param('schoolId') schoolId: string) {
     if (isNaN(+schoolId))
@@ -25,13 +26,15 @@ export class CourseController {
     return await this.courseService.getCategoryList(Math.round(+schoolId));
   }
 
+  @Public()
   @Get('/:schoolId/:categoryId')
   async getCourses(@Param() {schoolId, categoryId}: {schoolId: string, categoryId: string}) {
     if (isNaN(+schoolId) || isNaN(+categoryId))
-      return <ServerMessage>{error: true, message: 'ID категории может содержать только цифры!'};
+      return <ServerMessage>{error: true, message: 'ID категории и школы могут содержать только цифры!'};
     return await this.courseService.getCourseList(Math.round(+schoolId), +categoryId < 0 ? null : Math.round(+categoryId));
   }
 
+  @Public()
   @Get('/:schoolId/:categoryId/:courseId')
   async getLessons(@Param() {schoolId, categoryId, courseId}: {schoolId: string, categoryId: string, courseId: string}) {
     const isNonCategory = categoryId === 'none';

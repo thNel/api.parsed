@@ -29,7 +29,7 @@ export class CourseService {
     const answer = await this.categoryRepository.find({relations: {courses: true}, where: {school: {id: schoolId}}});
     const unClassified = await this.courseRepository.find({where: {school: {id: schoolId}, category: IsNull()}})
     if (unClassified.length)
-      return [...answer, {id: -1, title: 'Без категории', poster: 'none', hidden: true}];
+      return [...answer, {id: -1, title: 'Без категории', poster: null, hidden: true}];
     return answer;
   }
 

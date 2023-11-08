@@ -4,6 +4,7 @@ import {Course} from "@/typeorm/entities/courses";
 
 export enum LessonType {
   youtube,
+  getcourse,
   vimeo,
 }
 

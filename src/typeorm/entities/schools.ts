@@ -13,7 +13,7 @@ export class School {
   @Column({nullable: false})
   rootUrl: string;
 
-  @Column({nullable: false})
+  @Column({nullable: true})
   poster: string;
 
   @Column({nullable: false, default: false})

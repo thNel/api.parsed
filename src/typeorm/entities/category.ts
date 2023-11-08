@@ -10,7 +10,7 @@ export class Category {
   @Column({nullable: false})
   title: string;
 
-  @Column({nullable: false})
+  @Column({nullable: true})
   poster: string;
 
   @Column({nullable: false, default: false})
