@@ -5,6 +5,9 @@ import {School} from "@/typeorm/entities/schools";
 import {Course} from "@/typeorm/entities/courses";
 import {Lesson} from "@/typeorm/entities/lessons";
 import {Category} from "@/typeorm/entities/category";
+import {AxiosParams, ServerMessage} from "@/interfaces";
+import {firstValueFrom} from "rxjs";
+import {HttpService} from "@nestjs/axios";
 
 @Injectable()
 export class CourseService {
@@ -18,6 +21,7 @@ export class CourseService {
     private courseRepository: Repository<Course>,
     @InjectRepository(Lesson)
     private lessonRepository: Repository<Lesson>,
+    private readonly httpService: HttpService,
   ) {
   }
 
@@ -39,5 +43,18 @@ export class CourseService {
 
   async getLessonList(courseId: number) {
     return await this.lessonRepository.findBy({course: {id: courseId}});
+  }
+
+  async getVimeoVideo({url, config}: AxiosParams): Promise<ServerMessage> {
+    try {
+      const {data} = await firstValueFrom(
+        this.httpService.get(url, config)
+      );
+      return {success: true, message: data};
+    } catch (e) {
+      if (e?.message)
+        return {error: true, message: e.message}
+      return {error: true, message: 'Неизвестная ошибка'}
+    }
   }
 }

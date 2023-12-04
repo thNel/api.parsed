@@ -12,6 +12,9 @@ type ExtraData = {
   description?: string;
   extraVideos?: {title: string, url: string, type: LessonType}[];
   extraImages?: {title: string, url: string}[];
+  index?: number;
+  chapter?: string;
+  time?: string;
 }
 
 @Entity({name: 'lessons'})

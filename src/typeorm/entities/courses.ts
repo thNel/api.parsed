@@ -3,6 +3,11 @@ import {School} from "@/typeorm/entities/schools";
 import {Lesson} from "@/typeorm/entities/lessons";
 import {Category} from "@/typeorm/entities/category";
 
+type ExtraData = {
+  shortDescription?: string;
+  description?: string;
+}
+
 @Entity({name: 'courses'})
 export class Course {
   @PrimaryGeneratedColumn()
@@ -19,6 +24,9 @@ export class Course {
 
   @Column({nullable: false, default: false})
   hidden: boolean;
+
+  @Column({type: 'json', nullable: true, default: null})
+  extraData: ExtraData;
 
   @ManyToOne(() => School, (school) => school.courses, {cascade: true})
   school: School;

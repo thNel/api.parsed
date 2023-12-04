@@ -23,16 +23,18 @@ export class AppService {
     return 'Hello World 2!';
   }
 
-  // async readDump(schoolDump: {title: string, poster: string, rootUrl: string}): Promise<void> {
-  //   if (await this.schoolsRepository.findOneBy({title: schoolDump.title, rootUrl: schoolDump.rootUrl, poster: schoolDump.poster}))
+  // async readDump(): Promise<void> {
+  //   const schoolInfo = {title: parsedDump.title, rootUrl: parsedDump.rootUrl, poster: parsedDump.poster};
+  //   if (await this.schoolsRepository.findOneBy(schoolInfo))
   //     throw new HttpException({message: 'Такая школа уже существует!'}, HttpStatus.BAD_REQUEST);
-  //   const school = await this.schoolsRepository.save(schoolDump);
-  //   for (const courseDump of parsedDump) {
+  //   const school = await this.schoolsRepository.save(schoolInfo);
+  //   for (const courseDump of parsedDump.courses) {
   //     const course = await this.coursesRepository.save({
   //       school,
-  //       externalId: courseDump.id.toString(),
+  //       externalId: courseDump.externalId,
   //       title: courseDump.title,
   //       poster: courseDump.poster,
+  //       extraData: courseDump.extraData,
   //     });
   //     for (const lessonDump of courseDump.lessons) {
   //       await this.lessonsRepository.save({
